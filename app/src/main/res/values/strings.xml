@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Campus Connect</string>
+    <string name="no_data">Not Signed In</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+
+    <string name="dont_have_account">Don\'t Have An Account?</string>
+    <string name="already_have_account">Already Have An Account?</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="price_symbol">₹</string>
+
+    <string name="OpenDrawer">open navigation drawer</string>
+    <string name="CloseDrawer">close navigation drawer</string>
+
+    <string name="client_id">282384508882-3162jgnng08n9270qop7t32i2uivlu22.apps.googleusercontent.com</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="category">
+        <item>Choose Category</item>
+        <item>Electronics</item>
+        <item>Furniture</item>
+        <item>Beddings</item>
+        <item>Utensils</item>
+        <item>Bicycle</item>
+        <item>Books</item>
+        <item>Households</item>
+        <item>Shoes</item>
+        <item>Clothings</item>
+        <item>Others</item>
+    </string-array>
+</resources>

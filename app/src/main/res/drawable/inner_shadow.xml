@@ -1,0 +1,14 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="10dp" /> <!-- Adjust the radius value to match your card corner radius -->
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+    <item android:top="2dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="10dp" /> <!-- Adjust the radius value to match your card corner radius -->
+            <solid android:color="#DDDDDD" /> <!-- Adjust the shadow color as needed -->
+        </shape>
+    </item>
+</layer-list>

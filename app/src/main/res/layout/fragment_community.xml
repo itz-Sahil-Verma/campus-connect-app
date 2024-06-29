@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.community"
+    android:orientation="vertical"
+    android:background="#0C356A">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/joinedRV"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/joined"
+        android:layout_gravity="center">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:text="Explore More Communities"
+        android:textColor="#ffffff"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/unjoinedRV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        tools:listitem="@layout/unjoined">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+
+</LinearLayout>

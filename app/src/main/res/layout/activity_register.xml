@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".register">
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:textColor="#3F51B5"
+        android:textSize="25dp"
+        android:text="Let's Connect" />
+
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="130dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/signup"
+        android:layout_marginBottom="12dp"
+        >
+    </LinearLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:startIconDrawable="@drawable/baseline_email_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/white"
+            android:id="@+id/email"
+            android:hint="Email" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:startIconDrawable="@drawable/baseline_lock_24"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/white"
+            android:id="@+id/password"
+            android:hint="Password" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:startIconDrawable="@drawable/baseline_lock_24"
+        app:passwordToggleEnabled="true"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/white"
+            android:id="@+id/conpass"
+            android:hint="Confirm Password" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="By signing up, you are agree to our Terms &amp; Conditions and Privacy Policy" />
+
+    <Button
+        android:id="@+id/btnsignup"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circlebg"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center"
+        android:text="Sign UP" />
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:background="@drawable/circlebg"
+        android:backgroundTint="#058AF4"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:id="@+id/googlesignup"
+        >
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="42dp"
+            android:layout_height="37dp"
+            app:srcCompat="@drawable/img_1"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/tVg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:text="SIGN UP WITH GOOGLE"
+            android:textSize="17dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tV4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:text="Already Registered !"
+        android:textSize="15sp" />
+    <Button
+        android:id="@+id/btnlogin"
+        android:layout_width="230dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_margin="7dp"
+        android:background="@drawable/registerbutton"
+        android:text="Login" />
+
+
+
+
+
+</LinearLayout>
+
+
+
+

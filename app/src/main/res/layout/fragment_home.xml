@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    tools:context=".fragments.home">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+        <com.denzcoskun.imageslider.ImageSlider
+            android:layout_marginTop="10dp"
+            android:id="@+id/image_slider"
+            app:iss_placeholder="@drawable/campus_mainimg"
+            android:layout_width="330dp"
+            app:iss_error_image="@drawable/campus_mainimg"
+            android:layout_height="160dp"
+            app:iss_auto_cycle="true"
+            app:iss_period="1000"
+            app:iss_delay="1000"
+            app:iss_corner_radius="@integer/material_motion_duration_short_2"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            />
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="8dp"
+    android:layout_marginBottom="13dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginLeft="7dp"
+        android:text="Campus Resources"
+        android:textColor="#0070A3"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_marginTop="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+     <LinearLayout
+         android:layout_width="60dp"
+         android:layout_height="70dp"
+         android:orientation="vertical"
+         android:id="@+id/libicon"
+         android:layout_marginRight="14dp"
+         android:layout_marginLeft="14dp">
+
+         <ImageView
+             android:layout_width="45dp"
+             android:layout_height="50dp"
+             android:src="@drawable/library_home_icon"
+             android:layout_gravity="center"/>
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Library"
+             android:textColor="#0070A3"
+             android:textStyle="bold"
+             android:textSize="12dp"
+             android:layout_gravity="center"/>
+
+     </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:orientation="vertical"
+            android:id="@+id/erpicon"
+            android:gravity="center"
+            android:layout_marginRight="14dp"
+            android:layout_marginLeft="14dp">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="46dp"
+                android:src="@drawable/erp_portal"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Erp Portal"
+                android:textColor="#0070A3"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:orientation="vertical"
+            android:id="@+id/contacticon"
+            android:layout_marginRight="14dp"
+            android:layout_marginLeft="14dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/contacts"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contacts"
+                android:textColor="#0070A3"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:orientation="vertical"
+            android:id="@+id/canteenicon"
+            android:layout_marginRight="14dp"
+            android:layout_marginLeft="14dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/canteen"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Canteen"
+                android:textColor="#0070A3"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginLeft="7dp"
+        android:text="Explore Communities"
+        android:textColor="#0070A3"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="14dp"/>
+
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/round_corner"
+            android:layout_gravity="center"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            />
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/round_corner"
+            android:layout_gravity="center"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            />
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/round_corner"
+            android:layout_gravity="center"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            />
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:background="@drawable/round_corner"
+            android:layout_gravity="center"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            />
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="13dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+        <ImageView
+            android:layout_width="105dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/studentcorner"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
+            <ImageView
+                android:layout_width="105dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/pyq_icon"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+            <ImageView
+                android:layout_width="105dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/events_icons"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="8dp"
+        android:layout_marginBottom="13dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginLeft="7dp"
+            android:text="Notices"
+            android:textColor="#0070A3"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="14dp"/>
+
+        <WebView
+            android:id="@+id/web"
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
+
+
+
+</ScrollView>
+
+</LinearLayout>

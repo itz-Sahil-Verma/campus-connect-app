@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- circle style for shapeableImageview -->
+    <style name="ImageStyle_circle">
+        <item name="cornerSize">50%</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="color">#ffffff</item>
+    </style>
+
+    <!-- Rounded corners style for shapeableImageview -->
+    <style name="ImageStyle_Corners_Rounded">
+        <item name="cornerSize">10dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+</resources>
