@@ -1,15 +1,21 @@
 package com.example.campusconnectfinal
 
+import android.app.AlertDialog
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Button
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.campusconnectfinal.MainActivity
 import com.example.campusconnectfinal.R
+import com.example.campusconnectfinal.databinding.ActivityLoginBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -20,16 +26,19 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
+import android.view.LayoutInflater as LayoutInflater
 
 class login : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var progressDialog: ProgressDialog
     private lateinit var mGoogleSignInClient: GoogleSignInClient
+    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         progressDialog = ProgressDialog(this)
         auth = FirebaseAuth.getInstance()
@@ -72,14 +81,21 @@ class login : AppCompatActivity() {
 
             auth.signInWithEmailAndPassword(Email, Password).addOnSuccessListener {
 
-                // Login successful
-                progressDialog.cancel()
-                Toast.makeText(this, "Login successful.", Toast.LENGTH_SHORT).show()
+                val verification = auth.currentUser?.isEmailVerified
 
-                val intent = Intent(this, MainActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(intent)
-
+                if(verification == true){
+                    // Login successful
+                    progressDialog.cancel()
+                    Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+                    saveLoginState() // save the user data
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(intent)
+                }
+                else{
+                    progressDialog.cancel()
+                    Toast.makeText(this, "Verify Email First", Toast.LENGTH_SHORT).show()
+                }
             }
                 .addOnFailureListener {
                     // Login failed
@@ -88,10 +104,28 @@ class login : AppCompatActivity() {
                 }
         }
 
+
         btngoole.setOnClickListener {
             beginGoogleLogin()
         }
 
+        binding.forgottv.setOnClickListener{
+            val builder = AlertDialog.Builder(this)
+            val view = layoutInflater.inflate(R.layout.forget_password, null)
+            val userEmail = view.findViewById<TextInputEditText>(R.id.forgotemail)
+            builder.setView(view)
+
+            val dialog = builder.create()
+
+            view.findViewById<Button>(R.id.btnreset).setOnClickListener {
+                compareEmail(userEmail)
+                dialog.dismiss()
+            }
+            view.findViewById<Button>(R.id.btncancel).setOnClickListener {
+                dialog.dismiss()
+            }
+            dialog.show()
+        }
 
     }
 
@@ -174,5 +208,26 @@ class login : AppCompatActivity() {
                 Toast.makeText(this, "Failed to save user data", Toast.LENGTH_SHORT)
             }
 
+    }
+
+    private fun compareEmail(email: EditText) {
+        if (email.text.toString().isEmpty()){
+            return
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches()){
+            return
+        }
+        auth.sendPasswordResetEmail(email.text.toString()).addOnCompleteListener {
+            if (it.isSuccessful){
+                Toast.makeText(this,"Check your email", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun saveLoginState() {
+        val sharedPreferences: SharedPreferences = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("isLoggedIn", true)
+        editor.apply()
     }
 }

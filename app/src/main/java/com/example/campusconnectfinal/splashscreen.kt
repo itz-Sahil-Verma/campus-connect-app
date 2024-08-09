@@ -1,6 +1,8 @@
 package com.example.campusconnectfinal
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -14,9 +16,21 @@ class splashscreen : AppCompatActivity() {
         supportActionBar?.hide()
 
         Handler().postDelayed({
-            val intent = Intent(this, login::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivity(intent)
-        },1000)
+            checkLoginState()
+        }, 1000)
+    }
+
+    private fun checkLoginState() {
+        val sharedPreferences: SharedPreferences = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
+
+        val intent = if (isLoggedIn) {
+            Intent(this, MainActivity::class.java)
+        } else {
+            Intent(this, login::class.java)
+        }
+
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
     }
 }

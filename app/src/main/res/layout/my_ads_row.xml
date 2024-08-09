@@ -1,43 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:layout_marginTop="30dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:padding="8dp"
+    android:elevation="10dp"
+    android:backgroundTint="#FFFFFF"
+    android:background="@drawable/rc2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
 
     <ImageView
-        android:id="@+id/product_img"
-        android:layout_width="60dp"
+        android:id="@+id/productimg"
+        android:layout_width="80dp"
         android:layout_height="70dp"
+        android:layout_marginLeft="5dp"
         android:scaleType="centerCrop"
         android:src="@drawable/baseline_person_24_grey"
         android:layout_gravity="center" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="top">
 
     <TextView
-        android:id="@+id/product_tv"
+        android:id="@+id/productTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="top"
+        android:textColor="@color/teal"
+        android:textStyle="bold"
         android:text="Product Name"
-        android:layout_weight="1"
-        android:textSize="20dp"
+        android:textSize="25dp"
         />
 
-        <Button
-            android:id="@+id/btndlt"
-            android:layout_marginTop="3dp"
-            android:layout_marginRight="20dp"
-            android:backgroundTint="#A32F56"
-            android:gravity="center"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_gravity="right"
-            android:text="Delete"
-            android:textAllCaps="false"
-            android:layout_width="100dp"
-            android:layout_height="35dp"/>
+            android:layout_marginTop="10dp"
+            >
+
+            <Button
+                android:id="@+id/btnedit"
+                android:layout_width="63dp"
+                android:layout_height="38dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="20dp"
+                android:text="Edit"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btndlt"
+                android:layout_width="80dp"
+                android:layout_height="38dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:backgroundTint="#D63300"
+                android:text="Delete"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
 
     </LinearLayout>
-
-</LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -2,5 +2,5 @@
     android:shape="rectangle">
 
     <corners android:radius="15dp" /> <!-- Adjust the radius value to change the amount of rounding -->
-    <stroke android:width="1dp" android:color="@color/black"/>
+    <stroke android:width="1dp" android:color="@color/blue"/>
 </shape>

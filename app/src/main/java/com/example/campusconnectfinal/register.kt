@@ -22,6 +22,7 @@ class register : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var storeauth: FirebaseFirestore
     private lateinit var progressDialog: ProgressDialog
+    private lateinit var username: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +34,7 @@ class register : AppCompatActivity() {
         val confirmpass = findViewById<TextInputEditText>(R.id.conpass)
         val btnsignUp = findViewById<Button>(R.id.btnsignup)
         val btnlogin = findViewById<Button>(R.id.btnlogin)
+        val Username = findViewById<TextInputEditText>(R.id.username)
 
         //initialize firebase auth
         auth = FirebaseAuth.getInstance()
@@ -66,7 +68,12 @@ class register : AppCompatActivity() {
             val Email = email.text.toString().trim()
             val Password = password.text.toString().trim()
             val confpass = confirmpass.text.toString().trim()
+            username = Username.text.toString().trim()
 
+            if (username.isEmpty() ) {
+                Toast.makeText(this, "Please Enter Name", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             if (Email.isEmpty() ) {
                 Toast.makeText(this, "Please Enter Email", Toast.LENGTH_SHORT).show()
@@ -94,10 +101,13 @@ class register : AppCompatActivity() {
 
             auth.createUserWithEmailAndPassword(Email, Password).addOnSuccessListener{
 
-
-                Toast.makeText(this, "Registrated Succesfully", Toast.LENGTH_SHORT).show()
-
-                updateUserInfo("$Password", joinedCommunities)
+                auth.currentUser?.sendEmailVerification()?.addOnSuccessListener {
+                    Toast.makeText(this, "Please verify your mail", Toast.LENGTH_SHORT).show()
+                    updateUserInfo("$Password", joinedCommunities)
+                }
+                    ?.addOnFailureListener {
+                        Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
+                    }
 
             }
 
@@ -111,13 +121,13 @@ class register : AppCompatActivity() {
     }
 
     private fun updateUserInfo(Password :String, joinedCommunities: Map<String, Boolean>){
-        progressDialog.setMessage("Saving User Info")
+//        progressDialog.setMessage("Saving User Info")
 
         val registeredUserEmail = auth.currentUser!!.email
         val registeredUserId = auth.uid
 
         val userData = UserData(
-            name = "",
+            name = username,
             phoneNumber = "",
             profileImgUrl = "",
             rollNo = "",

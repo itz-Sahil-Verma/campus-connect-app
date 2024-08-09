@@ -133,18 +133,18 @@ class edit_profile : AppCompatActivity() {
         hashMap["name"] = "$name"
         hashMap["branch"] = "$branch"
         hashMap["course"] = "$course"
-        hashMap["rollno"] = "$Rollno"
+        hashMap["rollNo"] = "$Rollno"
 
         if(uploadedImageUrl != null){
             //update profile image in db only if uploaded image url is not null
-            hashMap["profileimageurl"] = "$uploadedImageUrl"
+            hashMap["profileImgUrl"] = "$uploadedImageUrl"
         }
         else{
 
         }
 
         hashMap["phonecode"] = "$phonecode"
-        hashMap["Phoneno"] = "$phonenum"
+        hashMap["phoneNumber"] = "$phonenum"
 
         //database reference of user to update info
 

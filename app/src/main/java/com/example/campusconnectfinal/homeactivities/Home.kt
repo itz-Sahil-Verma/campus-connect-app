@@ -1,22 +1,18 @@
 package com.example.campusconnectfinal.fragments
 
-import android.app.Activity
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.campusconnectfinal.R
-import com.example.campusconnectfinal.databinding.ActivityCreateadBinding
 import com.example.campusconnectfinal.databinding.FragmentHomeBinding
-import com.example.campusconnectfinal.databinding.FragmentMarketBinding
 import com.example.campusconnectfinal.homeactivities.Contacts
 import com.example.campusconnectfinal.homeactivities.erp
 import com.example.campusconnectfinal.homeactivities.libraray
@@ -46,7 +42,36 @@ class home : Fragment() {
         val imageSlider = view.findViewById<ImageSlider>(R.id.image_slider)
         imageSlider.setImageList(imageList)
 
-        webViewSetup(binding.web,0)
+        binding.web.settings.javaScriptEnabled = true
+
+        var webView = binding.web
+
+        webView.loadUrl("https://www.jcboseust.ac.in/") // Load the URL
+
+        webView.webViewClient = object : WebViewClient() {
+            override fun onPageFinished(view: WebView, url: String) {
+                super.onPageFinished(view, url)
+                webView.loadUrl("javascript:(function() { " +
+                        "var element = document.querySelector('#content > div.translate > div:nth-child(2)'); " +
+                        "var parent = element.parentNode; " +
+                        "while (parent !== document.body) { " +
+                        "    parent.style.display = 'none'; " +
+                        "    parent = parent.parentNode; " +
+                        "} " +
+                        "element.style.display = 'block'; " +
+                        "})()")
+            }
+        }
+//        binding.web.webViewClient = object : WebViewClient() {
+//            override fun onPageFinished(view: WebView, url: String) {
+//                super.onPageFinished(view, url)
+//                extractNoticesSection(view)
+//            }
+//        }
+
+
+// Load the website's URL into the WebView
+
 
         binding.contacticon.setOnClickListener {
             val intent = Intent(context, Contacts::class.java)
@@ -70,17 +95,23 @@ class home : Fragment() {
         return view
     }
 
-    private fun webViewSetup(webView: WebView, index: Int) {
-        webView.settings.javaScriptEnabled = true
-        webView.webViewClient = object : WebViewClient() {
-            override fun onPageFinished(view: WebView?, url: String?) {
-                webView.loadUrl("javascript:(function() { " +
-                        "var head = document.getElementsByClassName('block block-block last even')[0].style.display='none'; " +
-                        "})()");
-                }
+    fun extractNoticesSection(webView: WebView) {
+        webView.evaluateJavascript(
+            "(function(){ " +
+                    "var noticesElement = document.querySelector(\"#content > div.translate > div:nth-child(2)\"); " +
+                    "if (noticesElement !== null) { " +
+                    "    var noticesHtml = noticesElement.innerHTML; " +
+                    "    return '<html><body>' + noticesHtml + '</body></html>'; " +
+                    "} else { " +
+                    "    return '<html><body>No notices found.</body></html>'; " +
+                    "} " +
+                    "})()",
+            { html ->
+                val noticesHtml = html.toString()
+                webView.loadDataWithBaseURL(null, noticesHtml, "text/html", "UTF-8", null)
             }
-        webView.loadUrl("https://www.jcboseust.ac.in/")
-        }
+        )
+    }
 
 
 }

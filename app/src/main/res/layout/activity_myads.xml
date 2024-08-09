@@ -6,11 +6,45 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".marketactivities.myads"
-    android:layout_marginTop="15dp">
+    android:layout_marginTop="5dp">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:id="@+id/backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:padding="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Listed Products"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="@color/blue"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/myAdRv"
         android:layout_margin="5dp"
+        android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/my_ads_row">

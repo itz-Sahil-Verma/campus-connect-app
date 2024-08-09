@@ -21,7 +21,7 @@
        android:layout_marginLeft="100dp"
        android:background="@drawable/search_bg"
        app:queryHint="Search"
-       android:textAppearance="@color/black"
+       android:textAppearance="@color/blue"
        app:iconifiedByDefault="false"
        >
    </androidx.appcompat.widget.SearchView>

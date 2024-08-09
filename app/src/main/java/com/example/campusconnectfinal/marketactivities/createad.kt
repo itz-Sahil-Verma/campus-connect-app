@@ -18,6 +18,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
 import com.example.campusconnectfinal.R
 import com.example.campusconnectfinal.databinding.ActivityCreateadBinding
+import com.example.campusconnectfinal.fragments.market
+import com.example.campusconnectfinal.register
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -142,9 +144,11 @@ class createad : AppCompatActivity() {
                         .updateChildren(hashMap)
                         .addOnSuccessListener {
                             progressDialog.dismiss()
-                            Toast.makeText(this, "Updated...", Toast.LENGTH_SHORT).show()
-
+                            Toast.makeText(this, "Published", Toast.LENGTH_SHORT).show()
+                            intent = Intent(this, createad::class.java)
+                            startActivity(intent)
                             imageUri = null
+                            finish()
                         }
                         .addOnFailureListener {
                             progressDialog.dismiss()

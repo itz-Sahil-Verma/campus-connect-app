@@ -7,7 +7,6 @@
     android:orientation="vertical"
     tools:context=".register">
 
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -30,6 +29,21 @@
         >
     </LinearLayout>
 
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:startIconDrawable="@drawable/baseline_person_24_grey">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/white"
+            android:id="@+id/username"
+            android:hint="Name" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -60,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:backgroundTint="@color/white"
+            android:inputType="textPassword"
             android:id="@+id/password"
             android:hint="Password" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -77,6 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:backgroundTint="@color/white"
+            android:inputType="textPassword"
             android:id="@+id/conpass"
             android:hint="Confirm Password" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -98,36 +114,36 @@
         android:layout_gravity="center"
         android:text="Sign UP" />
 
-    <LinearLayout
-        android:layout_width="250dp"
-        android:layout_height="48dp"
-        android:orientation="horizontal"
-        android:background="@drawable/circlebg"
-        android:backgroundTint="#058AF4"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center"
-        android:id="@+id/googlesignup"
-        >
+<!--    <LinearLayout-->
+<!--        android:layout_width="250dp"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:background="@drawable/circlebg"-->
+<!--        android:backgroundTint="#058AF4"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:id="@+id/googlesignup"-->
+<!--        >-->
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="42dp"
-            android:layout_height="37dp"
-            app:srcCompat="@drawable/img_1"
-            android:layout_gravity="center"
-            />
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView"-->
+<!--            android:layout_width="42dp"-->
+<!--            android:layout_height="37dp"-->
+<!--            app:srcCompat="@drawable/img_1"-->
+<!--            android:layout_gravity="center"-->
+<!--            />-->
 
-        <TextView
-            android:id="@+id/tVg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center"
-            android:textColor="@color/white"
-            android:text="SIGN UP WITH GOOGLE"
-            android:textSize="17dp" />
+<!--        <TextView-->
+<!--            android:id="@+id/tVg"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:text="SIGN UP WITH GOOGLE"-->
+<!--            android:textSize="17dp" />-->
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
 
     <TextView
         android:id="@+id/tV4"

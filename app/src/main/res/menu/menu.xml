@@ -13,6 +13,7 @@
     <item android:title=""
         android:id="@+id/market"
         android:icon="@drawable/marketplace_icon"/>
+
     <item android:title=""
         android:id="@+id/profile"
         android:icon="@drawable/profile_icon"/>

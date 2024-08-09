@@ -40,7 +40,7 @@
             android:id="@+id/product_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="@color/blue"
             android:layout_margin="3dp"
             android:text="Product Price"
             android:textStyle="bold" />

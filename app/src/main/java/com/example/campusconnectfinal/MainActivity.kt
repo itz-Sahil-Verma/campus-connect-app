@@ -1,7 +1,9 @@
 package com.example.campusconnectfinal
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Message
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.FrameLayout
@@ -13,6 +15,7 @@ import com.example.campusconnectfinal.fragments.community
 import com.example.campusconnectfinal.fragments.home
 import com.example.campusconnectfinal.fragments.market
 import com.example.campusconnectfinal.fragments.profile
+import com.example.campusconnectfinal.messageactivities.Messagemain
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
@@ -117,20 +120,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-//            R.id.notifcation -> {
-//                // Action for the notification icon clicked
-//                // Perform your desired action here
-//                // For example, navigate to a notifications screen
-////                startActivity(Intent(this, NotificationsActivity::class.java))
-//                return true
-//            }
-//            R.id.message -> {
-//                // Action for the message icon clicked
-//                // Perform your desired action here
-//                // For example, show a dialog or navigate to a messaging screen
-//
-//                return true
-//            }
+            R.id.notifcation -> {
+                // Action for the notification icon clicked
+                // Perform your desired action here
+                // For example, navigate to a notifications screen
+//                startActivity(Intent(this, NotificationsActivity::class.java))
+                return true
+            }
+            R.id.message -> {
+                // Action for the message icon clicked
+                // Perform your desired action here
+                // For example, show a dialog or navigate to a messaging screen
+                intent = Intent(this, Messagemain::class.java)
+                startActivity(intent)
+                return true
+            }
             // Add additional cases for other menu items if needed
             else -> return super.onOptionsItemSelected(item)
         }

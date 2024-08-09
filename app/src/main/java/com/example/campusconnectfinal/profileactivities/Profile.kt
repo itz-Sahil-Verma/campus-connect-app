@@ -3,6 +3,7 @@ package com.example.campusconnectfinal.fragments
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -55,6 +56,12 @@ class profile : Fragment() {
 
 
         btnlogout?.setOnClickListener {
+            val sharedPreferences: SharedPreferences = mContext.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putBoolean("isLoggedIn", false)
+            editor.apply()
+
+
             auth.signOut()
             val intent = Intent(context, login::class.java)
             startActivity(intent)
@@ -84,11 +91,11 @@ class profile : Fragment() {
 
                     val email = "${snapshot.child("email").value}"
                     val name = "${snapshot.child("name").value}"
-                    val phone = "${snapshot.child("Phoneno").value}"
+                    val phone = "${snapshot.child("phoneNumber").value}"
                     val branch = "${snapshot.child("branch").value}"
-                    val rollno = "${snapshot.child("rollno").value}"
+                    val rollno = "${snapshot.child("rollNo").value}"
                     val course = "${snapshot.child("course").value}"
-                    val profileimgurl = "${snapshot.child("profileimageurl").value}"
+                    val profileimgurl = "${snapshot.child("profileImgUrl").value}"
                     val usertype = "${snapshot.child("usertype").value}"
 
                     //set data to ui
