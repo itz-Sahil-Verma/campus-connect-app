@@ -1,7 +1,7 @@
 Here are the some screen shots of campus connect multi-functionality app
 
 Splash Screen
-<img src="[image-ur](https://github.com/itz-Sahil-Verma/campus-connect-app/assets/111533506/2f44ca88-5c22-459c-ba91-863775ba12cc)l" alt="Alt text" width="200" height="200">
+
 ![image](https://github.com/itz-Sahil-Verma/campus-connect-app/assets/111533506/2f44ca88-5c22-459c-ba91-863775ba12cc)
 
 Login Screen
